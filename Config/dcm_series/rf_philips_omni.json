@@ -1,0 +1,29 @@
+{
+    "actions": {
+        "acqdatetime": {
+            "filters": {}, 
+            "params": {}
+        }, 
+        "header_series": {
+            "filters": {}, 
+            "params": {
+                "auto_suffix": false
+            }
+        }, 
+        "qc_series": {
+            "filters": {}, 
+            "params": {
+                "auto_suffix": false
+            }
+        }
+    }, 
+    "comments": {
+        "author": "Arnold Schilham, UMCU", 
+        "creator": "generate_config_json.py version 20180219", 
+        "description": "RF/Pehamed for Philips Omni Diagnost Eleva", 
+        "params": {
+            "auto_suffix": "attempt to add suffix to results based on protocol name"
+        }, 
+        "version": "20170828"
+    }
+}
