@@ -1,38 +1,38 @@
 {
     "actions": {
         "acqdatetime": {
-            "filters": {}, 
+            "filters": {},
             "params": {}
-        }, 
+        },
         "header_series": {
-            "filters": {}, 
+            "filters": {},
             "params": {
                 "auto_suffix": false
             }
-        }, 
+        },
         "qc_series": {
-            "filters": {}, 
+            "filters": {},
             "params": {
                 "auto_suffix": false
             }
         }
-    }, 
-    "cfgformat": "20180910", 
+    },
+    "cfgformat": "20180910",
     "comments": {
-        "author": "Arnold Schilham, UMCU", 
-        "creator": "generate_config_json.py version 20180912", 
-        "description": "RF/Pehamed for Philips Omni Diagnost Eleva", 
+        "author": "Arnold Schilham, UMCU",
+        "creator": "generate_config_json.py version 20180912",
+        "description": "RF/Pehamed for Philips Omni Diagnost Eleva",
         "version": "20170828"
-    }, 
+    },
     "info": {
         "acqdatetime": {
             "params": {}
-        }, 
+        },
         "header_series": {
             "params": {
                 "auto_suffix": "attempt to add suffix to results based on protocol name"
             }
-        }, 
+        },
         "qc_series": {
             "params": {
                 "auto_suffix": "attempt to add suffix to results based on protocol name"

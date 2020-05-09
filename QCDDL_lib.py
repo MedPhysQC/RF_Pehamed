@@ -16,6 +16,7 @@ Warning: THIS MODULE EXPECTS PYQTGRAPH DATA: X AND Y ARE TRANSPOSED! And make su
 
 TODO:
 Changelog:
+    20200508: dropping support for python2; dropping support for WAD-QC 1; toimage no longer exists in scipy.misc
     20171116: fix scipy version 1.0
     20170621: increased uniformity box to deal with no pix found.
     20161220: removed testing stuff; removed class variabled
@@ -23,7 +24,7 @@ Changelog:
     20150616: better orientation module
     20150609: Initial from QCXRay_Lib
 """
-__version__ = '20171116'
+__version__ = '20200508'
 __author__ = 'aschilham'
 
 import numpy as np
@@ -36,27 +37,35 @@ try:
 except ImportError:
     from . import QCDDL_constants as lit
 
-# First try if we are running wad1.0, since in wad2 libs are installed systemwide
+LOCALIMPORT = False
 try: 
     # try local folder
     import wadwrapper_lib
+    LOCALIMPORT = True
 except ImportError:
-    # try pyWADlib from plugin.py.zip
-    try: 
-        from pyWADLib import wadwrapper_lib
-
-    except ImportError: 
-        # wad1.0 solutions failed, try wad2.0 from system package wad_qc
-        from wad_qc.modulelibs import wadwrapper_lib
+    # try wad2.0 from system package wad_qc
+    from wad_qc.modulelibs import wadwrapper_lib
 
 import matplotlib.pyplot as plt
 import copy
 from numpy import fft as fftpack
 from scipy import stats
+import scipy.ndimage
 import numpy.ma as ma
 from PIL import Image # image from pillow is needed
 from PIL import ImageDraw # imagedraw from pillow is needed, not pil
-import scipy.misc
+try:
+    from scipy.misc import toimage
+except (ImportError, AttributeError) as e:
+    try:
+        if LOCALIMPORT:
+            from wadwrapper_lib import toimage as toimage
+        else:
+            from wad_qc.modulelibs.wadwrapper_lib import toimage as toimage
+    except (ImportError, AttributeError) as e:
+        msg = "Function 'toimage' cannot be found. Either downgrade scipy or upgrade WAD-QC."
+        raise AttributeError("{}: {}".format(msg, e))
+
 # sanity check: we need at least scipy 0.10.1 to avoid problems mixing PIL and Pillow
 scipy_version = [int(v) for v in scipy.__version__ .split('.')]
 if scipy_version[0] == 0:
@@ -1556,7 +1565,7 @@ class DDLQC:
         pal[0] = [255,0,0]
 
         # convert to 8-bit palette mapped image with lowest palette value used = 1
-        im = scipy.misc.toimage(cs.pixeldataIn.transpose()+1,low=1,pal=pal) # MODULE EXPECTS PYQTGRAPH DATA: X AND Y ARE TRANSPOSED!
+        im = toimage(cs.pixeldataIn.transpose()+1,low=1,pal=pal) # MODULE EXPECTS PYQTGRAPH DATA: X AND Y ARE TRANSPOSED!
 
         # now draw all rois in reserved color
         rois = []

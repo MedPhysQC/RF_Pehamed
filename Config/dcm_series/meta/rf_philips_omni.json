@@ -1,105 +1,105 @@
 {
     "comments": {
-        "author": "Arnold Schilham, UMCU", 
-        "creator": "generate_config_json.py version 20180912", 
+        "author": "Arnold Schilham, UMCU",
+        "creator": "generate_config_json.py version 20180912",
         "description": "RF/Pehamed for Philips Omni Diagnost Eleva"
-    }, 
-    "metaformat": "20180910", 
+    },
+    "metaformat": "20180910",
     "results": {
         "AcquisitionDateTime": {
-            "constraint_period": 14, 
-            "description": "date and time of acquisition", 
-            "display_level": 2, 
-            "display_name": "DateTime", 
+            "constraint_period": 14,
+            "description": "date and time of acquisition",
+            "display_level": 2,
+            "display_name": "DateTime",
             "units": ""
-        }, 
+        },
         "AlignConfidence": {
             "constraint_minlowhighmax": [
-                80, 
-                90, 
-                100, 
+                80,
+                90,
+                100,
                 100
-            ], 
-            "description": "check if orientation of phantom is correct", 
-            "display_level": 1, 
-            "display_name": "Align Confidence", 
+            ],
+            "description": "check if orientation of phantom is correct",
+            "display_level": 1,
+            "display_name": "Align Confidence",
             "units": ""
-        }, 
+        },
         "AnnotatedImage": {
-            "description": "overview of analysis element", 
-            "display_level": 2, 
-            "display_name": "overview", 
+            "description": "overview of analysis element",
+            "display_level": 2,
+            "display_name": "overview",
             "units": ""
-        }, 
+        },
         "CuConfidence": {
             "constraint_minlowhighmax": [
-                80, 
-                90, 
-                100, 
+                80,
+                90,
+                100,
                 100
-            ], 
-            "description": "check if copper wedge of phantom is located correctly", 
-            "display_level": 1, 
-            "display_name": "Cu Confidence", 
+            ],
+            "description": "check if copper wedge of phantom is located correctly",
+            "display_level": 1,
+            "display_name": "Cu Confidence",
             "units": ""
-        }, 
+        },
         "CuDR0.6_0.0": {
             "constraint_minlowhighmax": [
-                1.5, 
-                1.5, 
-                15.0, 
+                1.5,
+                1.5,
+                15.0,
                 15.0
-            ], 
-            "description": "dynamic range over Cu wedge", 
-            "display_level": 2, 
-            "display_name": "DynamicRange", 
+            ],
+            "description": "dynamic range over Cu wedge",
+            "display_level": 2,
+            "display_name": "DynamicRange",
             "units": ""
-        }, 
+        },
         "CuSNR_0.6_0.0": {
             "constraint_minlowhighmax": [
-                40, 
-                40, 
-                100, 
+                40,
+                40,
+                100,
                 100
-            ], 
-            "description": "signal to noise ratio in Cu wedge thickness 0.0mm", 
-            "display_level": 2, 
-            "display_name": "SNR", 
+            ],
+            "description": "signal to noise ratio in Cu wedge thickness 0.0mm",
+            "display_level": 2,
+            "display_name": "SNR",
             "units": ""
-        }, 
+        },
         "PhantomAngle": {
             "constraint_minlowhighmax": [
-                -2.5, 
-                -2.5, 
-                2.5, 
+                -2.5,
+                -2.5,
+                2.5,
                 2.5
-            ], 
-            "description": "rotation angle of phantom", 
-            "display_level": 2, 
+            ],
+            "description": "rotation angle of phantom",
+            "display_level": 2,
             "units": "deg"
-        }, 
+        },
         "PhantomOrientation": {
             "constraint_minlowhighmax": [
-                -1, 
-                -1, 
-                1, 
+                -1,
+                -1,
+                1,
                 1
-            ], 
-            "description": "check if orientation of phantom is correct", 
-            "display_level": 1, 
-            "display_name": "Phantom Orientation", 
+            ],
+            "description": "check if orientation of phantom is correct",
+            "display_level": 1,
+            "display_name": "Phantom Orientation",
             "units": "deg"
-        }, 
+        },
         "ROIUniformity": {
             "constraint_minlowhighmax": [
-                0, 
-                0, 
-                15, 
+                0,
+                0,
+                15,
                 20
-            ], 
-            "description": "compare uniformity between ROIs left and right with cente", 
-            "display_level": 2, 
-            "display_name": "Uniformity", 
+            ],
+            "description": "compare uniformity between ROIs left and right with cente",
+            "display_level": 2,
+            "display_name": "Uniformity",
             "units": ""
         }
     }

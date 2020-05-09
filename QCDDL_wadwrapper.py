@@ -21,6 +21,7 @@
 # 
 #
 # Changelog:
+#   20200508: dropping support for python2; dropping support for WAD-QC 1; toimage no longer exists in scipy.misc
 #   20190426: Fix for matplotlib>3
 #   20170825: fixed misinterpretation of auto_suffix
 #   20170621: added auto_suffix param
@@ -30,9 +31,8 @@
 #   20160620: remove quantity and units
 #
 # ./QCDDL_wadwrapper.py -c Config/rf_philips_omni.json -d TestSet/StudyDRE -r results_dre.json
-from __future__ import print_function
 
-__version__ = '20190426'
+__version__ = '20200508'
 __author__ = 'aschilham'
 
 import os
