@@ -16,6 +16,7 @@ Warning: THIS MODULE EXPECTS PYQTGRAPH DATA: X AND Y ARE TRANSPOSED! And make su
 
 TODO:
 Changelog:
+    20230906: fix for Pillow 10.0.0
     20200508: dropping support for python2; dropping support for WAD-QC 1; toimage no longer exists in scipy.misc
     20171116: fix scipy version 1.0
     20170621: increased uniformity box to deal with no pix found.
@@ -24,7 +25,7 @@ Changelog:
     20150616: better orientation module
     20150609: Initial from QCXRay_Lib
 """
-__version__ = '20200508'
+__version__ = '20230906'
 __author__ = 'aschilham'
 
 import numpy as np
@@ -1591,7 +1592,11 @@ class DDLQC:
         imsi = im.size
         if max(imsi)>2048:
             ratio = 2048./max(imsi)
-            im = im.resize( (int(imsi[0]*ratio+.5), int(imsi[1]*ratio+.5)),Image.ANTIALIAS)
+            try:
+                im = im.resize( (int(imsi[0]*ratio+.5), int(imsi[1]*ratio+.5)),Image.ANTIALIAS)
+            except AttributeError as e:
+                # PIL 10.0.0 deprecates ANTIALIAS
+                im = im.resize( (int(imsi[0]*ratio+.5), int(imsi[1]*ratio+.5)),Image.Resampling.LANCZOS)
         im.save(fname)
 
     def checkPhantomRotation(self,cs,ebbox=None):
